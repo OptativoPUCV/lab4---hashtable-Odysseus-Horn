@@ -44,3 +44,14 @@ hashmap.c:57:22: error: assignment to ‘Pair **’ from incompatible pointer ty
 cc1: all warnings being treated as errors
 Compilation failed
 fbe64ef
+Mon 10 Apr 2023 02:18:01 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:57:22: error: assignment to ‘Pair **’ from incompatible pointer type ‘Pair *’ [-Werror=incompatible-pointer-types]
+   57 |     new_map->buckets = (Pair*) malloc(sizeof(Pair));
+      |                      ^
+cc1: all warnings being treated as errors
+Compilation failed
+98bf12f
