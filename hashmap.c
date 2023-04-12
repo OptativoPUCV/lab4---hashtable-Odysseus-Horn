@@ -45,7 +45,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 
   Pair *new_pair = createPair(key, value);
 
-  while(map->capacity != map->current)
+  while(map->capacity > map->current)
   {
     if(map->buckets[map->current] == NULL)
     {  
