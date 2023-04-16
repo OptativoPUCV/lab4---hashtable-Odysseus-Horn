@@ -43,7 +43,7 @@ int is_equal(void* key1, void* key2){
 void insertMap(HashMap * map, char * key, void * value) {
   int hash_code = hash(key, map->capacity);
   map->current = hash_code;
-  bool colisiona = false;
+  
 
   Pair *new_pair = createPair(key, value);
 
@@ -57,17 +57,8 @@ void insertMap(HashMap * map, char * key, void * value) {
       return;
     }
     else
-    {
-      if(colisiona == false)
-      {
-        map->current = 0;
-        colisiona = true;
-      }
-      else
-      {
-        map->current++;
-      }
-      
+    {      
+      map->current++; 
     }
   }
 }
