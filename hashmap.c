@@ -58,7 +58,9 @@ void insertMap(HashMap * map, char * key, void * value) {
     }
     else
     {      
-      map->current++; 
+      map->current++;
+      if(map->current == map->capacity)
+        map->current = 0;
     }
   }
 }
