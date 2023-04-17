@@ -91,7 +91,7 @@ void eraseMap(HashMap * map,  char * key) {
 
 Pair * searchMap(HashMap * map,  char * key) {   
   int hash_code = hash(key, map->capacity);
-  return NULL;
+  
 
   map->current = hash_code;
   for(int i = map->current ; map->current < map->capacity ; i++)  {
