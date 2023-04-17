@@ -94,18 +94,12 @@ Pair * searchMap(HashMap * map,  char * key) {
   return NULL;
 
   map->current = hash_code;
-  while(map->buckets[map->current] != NULL && 
-        map->current < map->capacity){
-
-    if(strcmp(map->buckets[map->current]->key, key) == 0){
-      return map->buckets[map->current];
-    }
-    else {
-      map->current++;
-    }
+  for(int i = map->current ; map->current < map->capacity ; i++)  {
     
+    if(map->buckets[i] == NULL) return NULL;
 
-
+    if(strcmp(map->buckets[i]->key, key) == 0) 
+      return map->buckets[i];
     
   }
     
