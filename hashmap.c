@@ -93,10 +93,11 @@ void eraseMap(HashMap * map,  char * key) {
     
     if(map->buckets[i] == NULL) return;
 
-    if(strcmp(map->buckets[i]->key, key) == 0) 
+    if(strcmp(map->buckets[i]->key, key) == 0) {
       map->buckets[i] = NULL;
       map->size--;
       return;
+    }
     
   }
     
