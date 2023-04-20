@@ -89,7 +89,7 @@ void eraseMap(HashMap * map,  char * key) {
   Pair* par = searchMap(map, key);
 
   if(par == NULL)
-    return;
+    return; 
 
   int hash_code = hash(key, map->capacity);
 
@@ -98,7 +98,7 @@ void eraseMap(HashMap * map,  char * key) {
   
   while(map->current < map->size)
   {
-    if(strcmp(map->buckets[map->current]->key, key) == 0)
+    if(map->buckets[map->current] != NULL && (map->buckets[map->current]->key, key) == 0)
     {
       map->buckets[map->current] = NULL;
       map->size--;

@@ -261,3 +261,14 @@ Thu 20 Apr 2023 06:10:52 PM UTC:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 b241108
+Thu 20 Apr 2023 06:14:33 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:101:78: error: left-hand operand of comma expression has no effect [-Werror=unused-value]
+  101 |     if(map->buckets[map->current] != NULL && (map->buckets[map->current]->key, key) == 0)
+      |                                                                              ^
+cc1: all warnings being treated as errors
+Compilation failed
+438603e
