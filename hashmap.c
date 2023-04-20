@@ -15,7 +15,7 @@ struct HashMap {
     long size; //cantidad de datos/pairs en la tabla
     long capacity; //capacidad de la tabla
     long current; //indice del ultimo dato accedido
-    long first_index; //indice del primer dato en la tabl
+    
 };
 
 Pair * createPair( char * key,  void * value) {
@@ -55,12 +55,6 @@ void insertMap(HashMap * map, char * key, void * value) {
       
       map->buckets[map->current] = new_pair;
       map->size++;
-
-      
-      if (map->size == 1) {
-        map->first_index = map->current;
-      }
-      
       return;
     }
     else
@@ -152,11 +146,13 @@ Pair * searchMap(HashMap * map,  char * key) {
 }
 
 Pair * firstMap(HashMap * map) {
-    if(map->buckets[map->first_index] != NULL) {
-        return map->buckets[map->first_index];
-    } else {
-        return NULL;
+
+    for(int i = 0 ; i < map->capacity ; i++)
+    {
+        if(map->buckets[i] != NULL) return map->buckets[i];
     }
+  
+    return NULL;
 }
 
 Pair * nextMap(HashMap * map) {
