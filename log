@@ -272,3 +272,9 @@ hashmap.c:101:78: error: left-hand operand of comma expression has no effect [-W
 cc1: all warnings being treated as errors
 Compilation failed
 438603e
+Thu 20 Apr 2023 06:14:46 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  8|3
+total_score: 40/70
+bf3b233
