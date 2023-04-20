@@ -100,7 +100,7 @@ void eraseMap(HashMap * map,  char * key) {
   {
     if(strcmp(map->buckets[map->current]->key, key) == 0)
     {
-      map->buckets[map->capacity] = NULL;
+      map->buckets[map->current] = NULL;
       map->size--;
     }
     map->current++;
