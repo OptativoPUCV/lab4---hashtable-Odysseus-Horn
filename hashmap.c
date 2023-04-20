@@ -145,12 +145,16 @@ Pair * searchMap(HashMap * map,  char * key) {
 
 Pair * firstMap(HashMap * map) {
 
-    
+    if(map->buckets[0] == NULL) return NULL
 
     return map->buckets[0];
 }
 
 Pair * nextMap(HashMap * map) {
 
-    return map->buckets[map->current + 1];
+  if(map->current == map->capacity) map->capacity = 1;
+
+  if(map->buckets[map->current + 1] == NULL) return NULL;
+
+  return map->buckets[map->current + 1];
 }
