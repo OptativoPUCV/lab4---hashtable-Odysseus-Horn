@@ -91,10 +91,10 @@ void eraseMap(HashMap * map,  char * key) {
   if(par == NULL)
     return;
 
-  int hash_code = hash(key, map->size);
+  int hash_code = hash(key, map->capacity);
 
   map->current = hash_code;
-  while(map->current < map->capacity)
+  while(map->current < map->size)
   {
     if(strcmp(map->buckets[map->capacity]->key, key) == 0)
     {
