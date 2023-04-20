@@ -86,22 +86,20 @@ HashMap * createMap(long capacity) {
 
 void eraseMap(HashMap * map,  char * key) {    
 
-  Pair* par = searchMap(map, key);
-
-  if(par == NULL)
-    return; 
-
   int hash_code = hash(key, map->capacity);
-
   map->current = hash_code;
 
   
-  while(map->current < map->size)
+  while(map->current < map->capacity)
   {
-    if(map->buckets[map->current] != NULL && strcmp(map->buckets[map->current]->key, key) == 0)
+    if(map->buckets[map->current] != NULL)
     {
-      map->buckets[map->current] = NULL;
-      map->size--;
+      if(strcmp(map->buckets[map->current]->key, key) == 0)
+      {
+        map->buckets[map->current]->key = NULL;
+        map->size--;
+        return;
+      }
     }
     map->current++;
   }
