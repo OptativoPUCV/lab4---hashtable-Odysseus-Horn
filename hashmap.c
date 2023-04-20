@@ -145,16 +145,23 @@ Pair * searchMap(HashMap * map,  char * key) {
 
 Pair * firstMap(HashMap * map) {
 
-    if(map->buckets[0] == NULL) return NULL;
-
-    return map->buckets[0];
+    for(int i = 0 ; i < map->capacity ; i++)
+    {
+        if(map->buckets[i] != NULL) return map->buckets[i];
+    }
+  
+    return NULL;
 }
 
 Pair * nextMap(HashMap * map) {
 
-  if(map->current == map->capacity) map->capacity = 1;
-
-  if(map->buckets[map->current + 1] == NULL) return NULL;
-
-  return map->buckets[map->current + 1];
+  if(map->current == map->capacity) map->current = 0;
+  
+  for(int i = map->current +1; i < map->capacity - 1 ; i++)
+    {
+        if(map->buckets[i] != NULL) return map->buckets[i];
+    }
+  
+  return NULL;
+  
 }
