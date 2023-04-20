@@ -147,7 +147,7 @@ Pair * firstMap(HashMap * map) {
 
     if(map->buckets[0] == NULL) return NULL;
 
-    return map->buckets[0];
+    return map->buckets[0]->value;
 }
 
 Pair * nextMap(HashMap * map) {
