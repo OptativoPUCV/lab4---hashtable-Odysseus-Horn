@@ -147,21 +147,21 @@ Pair * searchMap(HashMap * map,  char * key) {
 
 Pair * firstMap(HashMap * map)
 {
-    int posicion = 0;
+    int position = 0;
 
-    while(map->buckets[posicion] == NULL || map->buckets[posicion]->key == NULL)
+    while(map->buckets[position] == NULL || map->buckets[position]->key == NULL)
     {
-        posicion++;
+        position++;
 
-        if(posicion >= map->capacity)
+        if(position >= map->capacity)
         {
             return NULL;
         }
     }
 
-    map->current = posicion;
+    map->current = position;
     
-    return map->buckets[posicion];
+    return map->buckets[position];
 }
 
 Pair * nextMap(HashMap * map) {
@@ -170,7 +170,13 @@ Pair * nextMap(HashMap * map) {
   
   for(int i = map->current +1; i < map->capacity - 1 ; i++)
     {
-        if(map->buckets[i] != NULL) return map->buckets[i];
+        if(map->buckets[i] != NULL)
+        {
+          map->current = i;
+          return map->buckets[i];
+        }
+        
+          
     }
   
   return NULL;
